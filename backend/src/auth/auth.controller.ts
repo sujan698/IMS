@@ -15,14 +15,14 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Public()
-  @Post("/login")
-  async login (@Body() loginDto:LoginDto){
+  @Post('/login')
+  async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
 
   @Public()
-  @Post("/register")
-  async register (@Body() registerDto:RegisterDto){
+  @Post('/register')
+  async register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
   }
 

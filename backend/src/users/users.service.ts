@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   BadRequestException,
   Injectable,
@@ -28,8 +29,7 @@ export class UsersService {
         `Unable to find the role ${createUserDto.role}`,
       );
     }
-    createUserDto.roleId=roleObj.id;
-
+    createUserDto.roleId = roleObj.id;
     const { role, ...rest } = createUserDto;
 
     rest.name = capatalizeFirstLetterOfEachWordInAphrase(rest.name);
@@ -72,18 +72,17 @@ export class UsersService {
     }
     if (!(await this.checkIfUserExist(updateUserDto.name, id))) {
       throw new BadRequestException(
-        `User ${updateUserDto.name}has alrready been taken`,
+        `User ${updateUserDto.name}has already been taken`,
       );
     }
- 
     if (!(await this.checkIfEmailExist(updateUserDto.email, id))) {
       throw new BadRequestException(
-        `User ${updateUserDto.email}has alrready been taken`,
+        `User ${updateUserDto.email}has already been taken`,
       );
     }
     if (!(await this.checkIfMobileExist(updateUserDto.mobile, id))) {
       throw new BadRequestException(
-        `User${updateUserDto.mobile} has alrready been taken`,
+        `User${updateUserDto.mobile} has already been taken`,
       );
     }
     if (updateUserDto.password) {

@@ -1,7 +1,15 @@
-import { IsBoolean, IsOptional, IsString, MaxLength } from 'class-validator';
+import {
+  IsBoolean,
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+} from 'class-validator';
 
 export class CreateCustomerVendorDto {
   @IsString()
+  @IsNotEmpty()
   name: string;
 
   @IsOptional()
@@ -9,13 +17,13 @@ export class CreateCustomerVendorDto {
   description?: string;
 
   @IsOptional()
-  @IsString()
+  @IsEmail()
   email: string;
 
   @IsOptional()
   @IsString()
   @MaxLength(15)
-  phone: string;
+  phone?: string;
 
   @IsOptional()
   @IsString()

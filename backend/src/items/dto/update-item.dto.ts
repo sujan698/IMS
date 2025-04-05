@@ -1,4 +1,3 @@
-
 import { CreateItemDto } from './create-item.dto';
 
-export class UpdateItemDto extends (CreateItemDto) {}
+export class UpdateItemDto extends CreateItemDto {}

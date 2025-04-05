@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 
 import { CreateRoleDto } from './create-role.dto';
 

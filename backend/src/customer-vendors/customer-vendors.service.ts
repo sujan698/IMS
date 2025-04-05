@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCustomerVendorDto } from './dto/create-customer-vendor.dto';
 import { UpdateCustomerVendorDto } from './dto/update-customer-vendor.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -7,23 +7,43 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CustomerVendorsService {
   constructor(private prismaService: PrismaService) {}
 
-  create(createCustomerVendorDto: CreateCustomerVendorDto) {
-    return 'This action adds a new customerVendor';
+  async create(CreateCustomerVendorDto: CreateCustomerVendorDto) {
+    return this.prismaService.customerVendor.create({
+      data: CreateCustomerVendorDto,
+    });
   }
 
   findAll() {
-    return `This action returns all customerVendors`;
+    return this.prismaService.customerVendor.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} customerVendor`;
+  async findOne(id: number) {
+    const customerVendor = await this.prismaService.customerVendor.findUnique({
+      where: { id },
+    });
+    if (!customerVendor) {
+      throw new NotFoundException(`CustomerVendor with id ${id} not found`);
+    }
+    return customerVendor;
   }
 
-  update(id: number, updateCustomerVendorDto: UpdateCustomerVendorDto) {
-    return `This action updates a #${id} customerVendor`;
+  async update(id: number, UpdateCustomerVendorDto: UpdateCustomerVendorDto) {
+    try {
+      return await this.prismaService.customerVendor.update({
+        where: { id },
+        data: UpdateCustomerVendorDto,
+      });
+    } catch {
+      throw new NotFoundException(`CustomerVendor with id ${id} not found`);
+    }
   }
-
-  remove(id: number) {
-    return `This action removes a #${id} customerVendor`;
+  async remove(id: number) {
+    try {
+      return await this.prismaService.customerVendor.delete({
+        where: { id },
+      });
+    } catch {
+      throw new NotFoundException(`CustomerVendor with id ${id} not found`);
+    }
   }
 }
