@@ -7,9 +7,9 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { CustomerVendorsService } from './customer-vendors.service';
-import { CreateCustomerVendorDto } from './dto/create-customer-vendor.dto';
-import { UpdateCustomerVendorDto } from './dto/update-customer-vendor.dto';
+import { CustomerVendorsService } from './customer-vendors.service'; // <-- Removed "type"
+import { CreateCustomerVendorDto } from './dto/create-customer-vendor.dto'; // <-- Removed "type"
+import { UpdateCustomerVendorDto } from './dto/update-customer-vendor.dto'; // <-- Removed "type"
 
 @Controller('customer-vendors')
 export class CustomerVendorsController {

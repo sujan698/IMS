@@ -11,9 +11,11 @@ import { ItemsModule } from './items/items.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { CustomerVendorsModule } from './customer-vendors/customer-vendors.module';
+import { SalesModule } from './sales/sales.module';
+import { PurchasesModule } from './purchases/purchases.module';
 
 @Module({
-  imports: [RolesModule, PrismaModule, OrganizationsModule, UsersModule, ItemsModule, AuthModule,ConfigModule.forRoot(), CustomerVendorsModule,],
+  imports: [RolesModule, PrismaModule, OrganizationsModule, UsersModule, ItemsModule, AuthModule,ConfigModule.forRoot(), CustomerVendorsModule, SalesModule, PurchasesModule,],
   controllers: [AppController],
   providers: [AppService, PrismaService],
 })
