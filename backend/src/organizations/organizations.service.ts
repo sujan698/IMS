@@ -23,7 +23,7 @@ export class OrganizationsService {
     }
     if (await this.checkIfOrganizationExist(createOrganizationDto.name)) {
       throw new BadRequestException(
-        `Organization ${createOrganizationDto.name}has alrready been taken`,
+        `Organization ${createOrganizationDto.name}has already been taken`,
       );
     }
 

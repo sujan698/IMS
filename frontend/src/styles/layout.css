@@ -1,0 +1,22 @@
+/* Layout component styles */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+}
+
+.page-content {
+  padding: 24px;
+  margin: 24px;
+  background-color: var(--color-card-background);
+  border-radius: var(--border-radius-base);
+  flex: 1;
+  color: var(--color-text);
+}

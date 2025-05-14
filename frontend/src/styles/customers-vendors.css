@@ -1,0 +1,91 @@
+/* Customer-Vendor shared styles */
+.entity-header {
+  margin-bottom: 24px;
+}
+
+.entity-title {
+  margin-bottom: 8px;
+}
+
+.entity-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.entity-search {
+  flex: 1;
+}
+
+.entity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .entity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .entity-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.entity-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.entity-card-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Filter tabs */
+.entity-filter-tabs {
+  margin-bottom: 16px;
+}
+
+.entity-type-badge {
+  margin-left: 8px;
+}
+
+/* Entity details */
+.entity-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.entity-details-title {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.entity-details-item {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.entity-details-label {
+  width: 120px;
+  color: var(--color-text-secondary);
+}
+
+.entity-details-value {
+  flex: 1;
+}
+
+/* Empty state */
+.entity-empty {
+  text-align: center;
+  padding: 48px 0;
+}

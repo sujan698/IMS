@@ -12,7 +12,7 @@ export class RolesService {
   async create(createRoleDto: CreateRoleDto) {
     createRoleDto.name = capatalizeFirstLetterOfEachWordInAphrase(createRoleDto.name);
     if(await this.checkIfRoleExist(createRoleDto.name)){
-      throw new BadRequestException(`Role ${createRoleDto.name}has alrready been taken`)
+      throw new BadRequestException(`Role ${createRoleDto.name}has already been taken`)
     }
     return  this.prismaService.role.create({data: createRoleDto});
   }
